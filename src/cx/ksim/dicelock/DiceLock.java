@@ -1,8 +1,7 @@
 package cx.ksim.dicelock;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
@@ -16,8 +15,9 @@ public class DiceLock {
 		var wordSep = " ";
 
 		try {
-			var path = Paths.get( wordList );
 			for ( int i = 0; i < wordCount; i++ ) {
+				var path = (DiceLock.class.getClassLoader().getResourceAsStream( wordList ));
+				var br = new BufferedReader( new InputStreamReader( path ) );
 
 				SecureRandom secureRandom = SecureRandom.getInstanceStrong();
 				StringBuilder stringBuilder = new StringBuilder();
@@ -29,14 +29,18 @@ public class DiceLock {
 				stringBuilder.append( secureRandom.nextInt( 1, 7 ) );
 
 				var num = stringBuilder.toString();
-				var c = Files.lines( path ).filter( t -> t.startsWith( num ) ).findAny().get();
+				var c = br.lines().filter( line -> line.startsWith( num ) ).findFirst().get();
+
 				System.out.print( c.split( "\t" )[1] + wordSep );
 			}
 			// TODO: Better error handling
-		} catch ( IOException e ) {
-			e.printStackTrace();
+//		} catch ( IOException e ) {
+//			e.printStackTrace();
 		} catch ( NoSuchAlgorithmException e ) {
 			e.printStackTrace();
+//		} catch ( URISyntaxException e ) {
+//			System.err.println( "IO" );
+//			e.printStackTrace();
 		}
 
 	}
