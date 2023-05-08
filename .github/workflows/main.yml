@@ -11,14 +11,14 @@ jobs:
         os: [ubuntu-latest, ubuntu-20.04]
     steps:
       - name: Setup repo
-      - uses: action/checkout@v3
+        uses: action/checkout@v3
       - name: Setup Java 17
-      - uses: actions/setup-java@v3
+        uses: actions/setup-java@v3
         with:
           distribution: "temurin"
           java-version: "17"
       - name: Run Junit Jupiter
-      - run: java -jar junit-platform-console-standalone-1.9.3.jar -d test --reports-dir result
+        run: java -jar junit-platform-console-standalone-1.9.3.jar -d test --reports-dir result
       - name: Create test summary
         uses: test-summary/action@dist
         with:
