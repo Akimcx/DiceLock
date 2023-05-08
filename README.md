@@ -5,7 +5,8 @@ Passphrase generator app using the dicewar method
 ## Quick Start
 
 ```console
-$ java java src/cx/ksim/dicelock/DiceLock.java
+$ javac --module-path src -d bin src/module-info.java
+$ java -p .\bin\ -m DiceLock/cx.ksim.dicelock.DiceLock
 ```
 
 ## Build yourself
