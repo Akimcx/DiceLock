@@ -4,7 +4,7 @@ on:
       - main
 jobs:
   run_test_on_linux:
-    name: Test dicelock with junit jupiter on ${{matrix.os}} with java17
+    name: Test dicelock with junit-platform-console-standalone-1.9.3 on ${{matrix.os}} with java17
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
@@ -17,10 +17,10 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
-      - name: Run Junit Jupiter
-        run: java -jar junit-platform-console-standalone-1.9.3.jar -d test --reports-dir result
+      - name: Run Console Launcher
+        run: java @test
       - name: Create test summary
         uses: test-summary/action@dist
         with:
-          paths: result/**/*.xml
+          paths: reports/**/*.xml
         if: always()
