@@ -26,7 +26,15 @@ jobs:
           javac @compile-src
           javac @compile-test
           cp src/resources/* bin/main/cx.ksim.dicelock
-          java @test
+          java --add-opens cx.ksim.dicelock/cx.ksim.dicelock=ALL-UNNAMED \
+              --add-modules=ALL-MODULE-PATH \
+              -p bin/main \
+              --patch-module "cx.ksim.dicelock=/home/runner/work/DiceLock/DiceLock/bin/test" \
+              --add-reads cx.ksim.dicelock=ALL-UNNAMED \
+              -jar junit-platform-console-standalone-1.9.3.jar \
+              -e junit-jupiter \
+              -p cx.ksim.dicelock \
+              --reports-dir=reports
       - name: Create test summary
         uses: test-summary/action@dist
         with:
