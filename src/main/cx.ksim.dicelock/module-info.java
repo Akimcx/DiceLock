@@ -1,0 +1,4 @@
+
+module cx.ksim.dicelock {
+	
+}

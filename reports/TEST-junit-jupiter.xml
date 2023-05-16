@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="3" skipped="0" failures="0" errors="0" time="0.373" hostname="akim" timestamp="2023-05-15T20:49:40">
+<properties>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.separator" value="/"/>
+<property name="java.class.path" value="junit-platform-console-standalone-1.9.3.jar"/>
+<property name="java.class.version" value="61.0"/>
+<property name="java.home" value="/usr/lib/jvm/java-17-openjdk-amd64"/>
+<property name="java.io.tmpdir" value="/tmp"/>
+<property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+<property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+<property name="java.runtime.version" value="17.0.6+10-Debian-1deb11u1"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="17"/>
+<property name="java.util.prefs.userRoot" value="/home/akim/.config/java"/>
+<property name="java.vendor" value="Debian"/>
+<property name="java.vendor.url" value="https://tracker.debian.org/openjdk-17"/>
+<property name="java.vendor.url.bug" value="https://bugs.debian.org/openjdk-17"/>
+<property name="java.version" value="17.0.6"/>
+<property name="java.version.date" value="2023-01-17"/>
+<property name="java.vm.compressedOopsMode" value="32-bit"/>
+<property name="java.vm.info" value="mixed mode"/>
+<property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="17"/>
+<property name="java.vm.vendor" value="Debian"/>
+<property name="java.vm.version" value="17.0.6+10-Debian-1deb11u1"/>
+<property name="jdk.debug" value="release"/>
+<property name="jdk.module.path" value="bin/main"/>
+<property name="line.separator" value="
+"/>
+<property name="native.encoding" value="UTF-8"/>
+<property name="os.arch" value="amd64"/>
+<property name="os.name" value="Linux"/>
+<property name="os.version" value="5.10.0-21-amd64"/>
+<property name="path.separator" value=":"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-openjdk-amd64/lib"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+<property name="sun.java.command" value="junit-platform-console-standalone-1.9.3.jar -e junit-jupiter -p cx.ksim.dicelock --reports-dir=reports"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="sun.stderr.encoding" value="UTF-8"/>
+<property name="sun.stdout.encoding" value="UTF-8"/>
+<property name="user.country" value="US"/>
+<property name="user.dir" value="/home/akim/repos/project/eclipse/dicelock"/>
+<property name="user.home" value="/home/akim"/>
+<property name="user.language" value="en"/>
+<property name="user.name" value="akim"/>
+<property name="user.timezone" value="America/New_York"/>
+</properties>
+<testcase name="generateWords(int)[1]" classname="cx.ksim.dicelock.DiceLockTest" time="0.173">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:cx.ksim.dicelock.DiceLockTest]/[test-template:generateWords(int)]/[test-template-invocation:#1]
+display-name: Should generate 3 words.
+]]></system-out>
+</testcase>
+<testcase name="generateWords(int)[2]" classname="cx.ksim.dicelock.DiceLockTest" time="0.029">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:cx.ksim.dicelock.DiceLockTest]/[test-template:generateWords(int)]/[test-template-invocation:#2]
+display-name: Should generate 6 words.
+]]></system-out>
+</testcase>
+<testcase name="generateWords(int)[3]" classname="cx.ksim.dicelock.DiceLockTest" time="0.02">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:cx.ksim.dicelock.DiceLockTest]/[test-template:generateWords(int)]/[test-template-invocation:#3]
+display-name: Should generate 9 words.
+]]></system-out>
+</testcase>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>

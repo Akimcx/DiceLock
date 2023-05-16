@@ -1,0 +1,2 @@
+-p bin/main
+-m cx.ksim.dicelock/cx.ksim.dicelock.DiceLock

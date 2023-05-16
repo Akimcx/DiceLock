@@ -4,23 +4,39 @@ on:
       - main
 jobs:
   run_test_on_linux:
-    name: Test dicelock with junit jupiter on ${{matrix.os}} with java17
+    name: Test dicelock with junit-platform-console-standalone-1.9.3 on ${{matrix.os}} with java17
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-20.04]
     steps:
       - name: Setup repo
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
+      - name: Locating myself
+        run : |
+          pwd
+          ls
       - name: Setup Java 17
         uses: actions/setup-java@v3
         with:
           distribution: "temurin"
           java-version: "17"
-      - name: Run Junit Jupiter
-        run: java -jar junit-platform-console-standalone-1.9.3.jar -d test --reports-dir result
+      - name: Run Console Launcher
+        run: |
+          javac @compile-src
+          javac @compile-test
+          cp src/resources/* bin/main/cx.ksim.dicelock
+          java --add-opens cx.ksim.dicelock/cx.ksim.dicelock=ALL-UNNAMED \
+              --add-modules=ALL-MODULE-PATH \
+              -p bin/main \
+              --patch-module "cx.ksim.dicelock=/home/runner/work/DiceLock/DiceLock/bin/test" \
+              --add-reads cx.ksim.dicelock=ALL-UNNAMED \
+              -jar junit-platform-console-standalone-1.9.3.jar \
+              -e junit-jupiter \
+              -p cx.ksim.dicelock \
+              --reports-dir=reports
       - name: Create test summary
         uses: test-summary/action@dist
         with:
-          paths: result/**/*.xml
+          paths: reports/**/*.xml
         if: always()
