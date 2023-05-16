@@ -18,7 +18,11 @@ jobs:
           distribution: "temurin"
           java-version: "17"
       - name: Run Console Launcher
-        run: java @test
+        run: |
+          javac @compile-src
+          javac @compile-test
+          cp src/resources/* bin/main/cx.ksim.dicelock
+          java @test
       - name: Create test summary
         uses: test-summary/action@dist
         with:
