@@ -1,3 +1,4 @@
+[![.github/workflows/main.yml](https://github.com/Akimcx/DiceLock/actions/workflows/main.yml/badge.svg?event=pull_request)](https://github.com/Akimcx/DiceLock/actions/workflows/main.yml)
 # DiceLock
 
 Passphrase generator app using the dicewar method
