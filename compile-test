@@ -1,3 +1,0 @@
--d bin/test
--cp "bin/main/cx.ksim.dicelock:junit-platform-console-standalone-1.9.3.jar"
-src/test/cx.ksim.dicelock/cx/ksim/dicelock/DiceLockTest.java

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -e
+
+src() {
+    javac -d bin/main --module-source-path src/main --module cx.ksim.dicelock
+}
+
+test() {
+     javac -d bin/test -cp "bin/main/cx.ksim.dicelock:junit-platform-console-standalone-1.9.3.jar" `find src/test/ -name *.java`
+}
+
+
+if [ $# -eq 0 ]; then
+    src
+    test
+    exit 0
+fi
+case $1 in
+    "src")
+    	src
+	;;
+    "test")
+    	test
+	;;
+    *)
+	echo "Unknown commands"
+	exit 1
+	;;
+esac
+cp src/resources/* bin/main/cx.ksim.dicelock/
