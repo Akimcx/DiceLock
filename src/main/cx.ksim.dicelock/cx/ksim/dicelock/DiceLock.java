@@ -69,8 +69,10 @@ public class DiceLock implements Callable<Integer>{
 						.findFirst()
 						.get()
 						.split("\t")[1];
+				
 				if(shoudlCapitalize) words[i] = capitalize(words[i]);
-				if (verbose) System.out.printf("Grabbed %s word: %s\n", toOrdinal(1+i), words[i]);
+				if(verbose) System.out.printf("Grabbed %s word: %s\n", toOrdinal(1+i), words[i]);
+				
 			} catch ( NoSuchAlgorithmException e ) {
 				e.printStackTrace();
 			} catch ( IOException e1 ) {
