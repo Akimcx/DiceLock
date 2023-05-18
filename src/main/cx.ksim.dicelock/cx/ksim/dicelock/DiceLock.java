@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Arrays;
 
 public class DiceLock {
 
@@ -39,16 +38,18 @@ public class DiceLock {
 
 				var num = stringBuilder.toString();
 				assert (num.length() == 5);
-				words[i] = br.lines().filter( line -> line.startsWith( num ) ).findFirst().get();
+				words[i] = br.lines()
+						.filter( line -> line.startsWith( num ) )
+						.findFirst()
+						.get()
+						.split("\t")[1];
 			} catch ( NoSuchAlgorithmException e ) {
 				e.printStackTrace();
 			} catch ( IOException e1 ) {
 				e1.printStackTrace();
 			}
 		}
-		// TODO: Task Failed Successfully
-		// It actually print the exact wordCount, but give the whole line
-		return Arrays.toString( words );
+		return String.join(wordSep, words);
 	}
 
 }
