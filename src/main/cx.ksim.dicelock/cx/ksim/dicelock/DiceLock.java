@@ -7,8 +7,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.concurrent.Callable;
 
-import cx.ksim.dicelock.CommandLine.Command;
-import cx.ksim.dicelock.CommandLine.Option;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
 @Command(
 		name = "dicelock", version = "1.0",

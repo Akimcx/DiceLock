@@ -2,4 +2,4 @@
 
 set -e
 
-java -p bin/main -m cx.ksim.dicelock/cx.ksim.dicelock.DiceLock
+java -p bin/main:$HOME/programming/binaries/picocli-4.7.3.jar -m cx.ksim.dicelock/cx.ksim.dicelock.DiceLock $@

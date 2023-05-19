@@ -3,7 +3,7 @@
 set -e
 
 src() {
-    javac -d bin/main --module-source-path src/main --module cx.ksim.dicelock
+    javac -d bin/main -p $HOME/programming/binaries/picocli-4.7.3.jar --module-source-path src/main --module cx.ksim.dicelock
 }
 
 test() {
