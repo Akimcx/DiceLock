@@ -4,8 +4,8 @@ module cx.ksim.dicelock {
 	requires javafx.controls;
 	requires javafx.fxml;
 
-	exports cx.ksim.dicelock.fx;
+	exports cx.ksim.dicelock.gui;
 
 	opens cx.ksim.dicelock to info.picocli;
-	opens cx.ksim.dicelock.fx to javafx.fxml;
+	opens cx.ksim.dicelock.gui to javafx.fxml;
 }

@@ -1,4 +1,4 @@
-package cx.ksim.dicelock.fx;
+package cx.ksim.dicelock.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
