@@ -5,6 +5,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import core.DiceLock;
+import core.DiceLockOptions;
+
 class DiceLockTest {
 	private DiceLockOptions options = new DiceLockOptions();
 	

@@ -6,7 +6,7 @@ public record DiceLockOptions(
 		boolean shouldCapitalize ) {
 	
 	DiceLockOptions() {
-		this(6,"/wordlist,txt");
+		this(6,"/wordlist.txt");
 	}	
 	
 	DiceLockOptions(int wordCount, String wordList) {
