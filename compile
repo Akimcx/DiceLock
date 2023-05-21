@@ -2,8 +2,14 @@
 
 set -e
 
-src() {
-    javac -d bin/main -p $HOME/programming/binaries/picocli-4.7.3.jar --module-source-path src/main --module cx.ksim.dicelock
+cli() {
+    javac -d bin/main -p $HOME/programming/binaries/picocli-4.7.3.jar --module-source-path src/main --module cx.ksim.dicelock.core,cx.ksim.dicelock.cli
+    cp src/main/cx.ksim.dicelock.core/resources/* bin/main/cx.ksim.dicelock.core/
+}
+
+gui() {
+	javac -d bin/main -p $HOME/programming/binaries/javafx-sdk-17.0.7/lib/ --module-source-path src/main --module cx.ksim.dicelock.core,cx.ksim.dicelock.gui
+    cp src/main/cx.ksim.dicelock.gui/cx/ksim/dicelock/gui/Layout.fxml bin/main/cx.ksim.dicelock.gui/cx/ksim/dicelock/gui/
 }
 
 test() {
@@ -17,8 +23,11 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 case $1 in
-    "src")
-    	src
+    "cli")
+	cli
+	;;
+    "gui")
+	gui
 	;;
     "test")
     	test
@@ -28,4 +37,4 @@ case $1 in
 	exit 1
 	;;
 esac
-cp src/resources/* bin/main/cx.ksim.dicelock/
+# cp src/resources/* bin/main/cx.ksim.dicelock/

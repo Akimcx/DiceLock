@@ -2,4 +2,27 @@
 
 set -e
 
-java -p bin/main:$HOME/programming/binaries/picocli-4.7.3.jar -m cx.ksim.dicelock/cx.ksim.dicelock.DiceLock $@
+cli() {
+	java -p bin/main:$HOME/programming/binaries/picocli-4.7.3.jar -m cx.ksim.dicelock.cli/cx.ksim.dicelock.cli.DiceLockCLI $@
+}
+
+gui(){
+	java -p bin/main:/mnt/c/Users/Admin/Documents/Ksim/bin/openjfx-17.0.7_windows-x64_bin-sdk/javafx-sdk-17.0.7/lib --list-modules
+	java -p bin/main:/mnt/c/Users/Admin/Documents/Ksim/bin/openjfx-17.0.7_windows-x64_bin-sdk/javafx-sdk-17.0.7/lib -m cx.ksim.dicelock.gui/cx.ksim.dicelock.gui.Main
+}
+
+case $1 in
+    "cli")
+	cli
+	;;
+    "gui")
+	gui
+	;;
+    "test")
+    	test
+	;;
+    *)
+	echo "Unknown commands"
+	exit 1
+	;;
+esac
