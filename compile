@@ -13,12 +13,12 @@ gui() {
 }
 
 test() {
-     javac -d bin/test -cp "bin/main/cx.ksim.dicelock:junit-platform-console-standalone-1.9.3.jar" `find src/test/ -name *.java`
+     javac -d bin/test -cp "bin/main/cx.ksim.dicelock.core:junit-platform-console-standalone-1.9.3.jar" `find src/test/ -name *.java`
 }
 
 
 if [ $# -eq 0 ]; then
-    src
+    cli
     test
     exit 0
 fi

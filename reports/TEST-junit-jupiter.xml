@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.012" hostname="Caisse1" timestamp="2023-05-20T17:47:31">
+<testsuite name="JUnit Jupiter" tests="3" skipped="0" failures="0" errors="0" time="0.279" hostname="akim" timestamp="2023-05-21T23:55:46">
 <properties>
 <property name="file.encoding" value="UTF-8"/>
 <property name="file.separator" value="/"/>
@@ -13,6 +13,7 @@
 <property name="java.specification.name" value="Java Platform API Specification"/>
 <property name="java.specification.vendor" value="Oracle Corporation"/>
 <property name="java.specification.version" value="17"/>
+<property name="java.util.prefs.userRoot" value="/home/akim/.config/java"/>
 <property name="java.vendor" value="Debian"/>
 <property name="java.vendor.url" value="https://tracker.debian.org/openjdk-17"/>
 <property name="java.vendor.url.bug" value="https://bugs.debian.org/openjdk-17"/>
@@ -33,7 +34,7 @@
 <property name="native.encoding" value="UTF-8"/>
 <property name="os.arch" value="amd64"/>
 <property name="os.name" value="Linux"/>
-<property name="os.version" value="4.4.0-19041-Microsoft"/>
+<property name="os.version" value="5.10.0-21-amd64"/>
 <property name="path.separator" value=":"/>
 <property name="sun.arch.data.model" value="64"/>
 <property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-openjdk-amd64/lib"/>
@@ -46,12 +47,30 @@
 <property name="sun.stderr.encoding" value="UTF-8"/>
 <property name="sun.stdout.encoding" value="UTF-8"/>
 <property name="user.country" value="US"/>
-<property name="user.dir" value="/mnt/c/Users/Admin/Documents/Ksim/DiceLock"/>
-<property name="user.home" value="/home/myself"/>
+<property name="user.dir" value="/home/akim/repos/project/eclipse/dicelock"/>
+<property name="user.home" value="/home/akim"/>
 <property name="user.language" value="en"/>
-<property name="user.name" value="myself"/>
+<property name="user.name" value="akim"/>
 <property name="user.timezone" value="America/New_York"/>
 </properties>
+<testcase name="generateWords(int)[3]" classname="cx.ksim.dicelock.core.DiceLockTest" time="0.016">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:cx.ksim.dicelock.core.DiceLockTest]/[test-template:generateWords(int)]/[test-template-invocation:#3]
+display-name: Should generate 9 words.
+]]></system-out>
+</testcase>
+<testcase name="generateWords(int)[2]" classname="cx.ksim.dicelock.core.DiceLockTest" time="0.021">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:cx.ksim.dicelock.core.DiceLockTest]/[test-template:generateWords(int)]/[test-template-invocation:#2]
+display-name: Should generate 6 words.
+]]></system-out>
+</testcase>
+<testcase name="generateWords(int)[1]" classname="cx.ksim.dicelock.core.DiceLockTest" time="0.12">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:cx.ksim.dicelock.core.DiceLockTest]/[test-template:generateWords(int)]/[test-template-invocation:#1]
+display-name: Should generate 3 words.
+]]></system-out>
+</testcase>
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]
 display-name: JUnit Jupiter

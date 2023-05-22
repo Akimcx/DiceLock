@@ -23,7 +23,7 @@ public class FXMLController {
     	System.out.println("TextField: " + wordCount.getText());
     	System.out.println("Delimiter: " + delimiter.getValue());
     	generatedPassphrase.setText(DiceLock.generateRandomWords(
-    			new DiceLockOptions(Integer.parseInt(wordCount.getText(),10), "/wordlist.txt", " ", false,shouldCapitalize.isSelected())));
+    			new DiceLockOptions(Integer.parseInt(wordCount.getText(),10), "/wordlist.txt", " ", false,!shouldCapitalize.isSelected())));
     }
 
 }
