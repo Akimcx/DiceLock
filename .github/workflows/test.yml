@@ -12,10 +12,6 @@ jobs:
     steps:
       - name: Setup repo
         uses: actions/checkout@v3
-      - name: Locating myself
-        run : |
-          pwd
-          ls
       - name: Setup Java 17
         uses: actions/setup-java@v3
         with:
@@ -23,17 +19,15 @@ jobs:
           java-version: "17"
       - name: Run Console Launcher
         run: |
-          javac @compile-src
-          javac @compile-test
-          cp src/resources/* bin/main/cx.ksim.dicelock
-          java --add-opens cx.ksim.dicelock/cx.ksim.dicelock=ALL-UNNAMED \
+          ./compile test
+          java --add-opens cx.ksim.dicelock.core/cx.ksim.dicelock.core=ALL-UNNAMED \
               --add-modules=ALL-MODULE-PATH \
               -p bin/main \
-              --patch-module "cx.ksim.dicelock=/home/runner/work/DiceLock/DiceLock/bin/test" \
-              --add-reads cx.ksim.dicelock=ALL-UNNAMED \
+              --patch-module "cx.ksim.dicelock.core=/home/runner/work/DiceLock/DiceLock/bin/test" \
+              --add-reads cx.ksim.dicelock.core=ALL-UNNAMED \
               -jar junit-platform-console-standalone-1.9.3.jar \
               -e junit-jupiter \
-              -p cx.ksim.dicelock \
+              -p cx.ksim.dicelock.core \
               --reports-dir=reports
       - name: Create test summary
         uses: test-summary/action@dist
