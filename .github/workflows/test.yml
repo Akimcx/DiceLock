@@ -19,7 +19,7 @@ jobs:
           java-version: "17"
       - name: Run Console Launcher
         run: |
-          ./compile cli
+          ./compile core
           ./compile test
           java --add-opens cx.ksim.dicelock.core/cx.ksim.dicelock.core=ALL-UNNAMED \
               --add-modules=ALL-MODULE-PATH \
