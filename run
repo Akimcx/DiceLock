@@ -1,2 +1,46 @@
--p bin/main
--m cx.ksim.dicelock/cx.ksim.dicelock.DiceLock
+#!/usr/bin/env bash
+
+set -e
+
+cli() {
+	java -p bin/main:$HOME/programming/binaries/picocli-4.7.3.jar -m cx.ksim.dicelock.cli/cx.ksim.dicelock.cli.DiceLockCLI $@
+}
+
+gui(){
+	java -p bin/main:$HOME/programming/binaries/javafx-sdk-17.0.7/lib -m cx.ksim.dicelock.gui/cx.ksim.dicelock.gui.Main
+}
+
+
+
+test() {
+    java --add-opens cx.ksim.dicelock.core/cx.ksim.dicelock.core=ALL-UNNAMED  \
+	--add-modules=cx.ksim.dicelock.core                              \
+	-p bin/main                                                \
+	--patch-module "cx.ksim.dicelock.core=$PWD/bin/test"            \
+	--add-reads cx.ksim.dicelock.core=ALL-UNNAMED                   \
+	-jar junit-platform-console-standalone-1.9.3.jar           \
+	-e junit-jupiter                                           \
+	-p cx.ksim.dicelock.core                                        \
+	--reports-dir=reports
+}
+
+if [ $# -eq 0 ]; then
+    cli
+    exit 1
+fi
+
+case $1 in
+    "cli")
+	cli
+	;;
+    "gui")
+	gui
+	;;
+    "test")
+    	test
+	;;
+    *)
+	echo "Unknown commands"
+	exit 1
+	;;
+esac
