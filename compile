@@ -2,24 +2,30 @@
 
 set -e
 
+core_module=cx.ksim.dicelock.core
+cli_module=cx.ksim.dicelock.cli
+gui_module=cx.ksim.dicelock.gui
+
 cli() {
-    javac -d bin/main -p $HOME/programming/binaries/picocli-4.7.3.jar --module-source-path src/main --module cx.ksim.dicelock.core,cx.ksim.dicelock.cli
-    cp src/main/cx.ksim.dicelock.core/resources/* bin/main/cx.ksim.dicelock.core/
+    echo $PICOCLI_PATH
+    javac -d bin/main -p $PICOCLI_PATH --module-source-path src/main --module $core_module,$cli_module
+    cp src/main/$core_module/resources/* bin/main/$core_module/
 }
 
 gui() {
-	javac -d bin/main -p $HOME/programming/binaries/javafx-sdk-17.0.7/lib/ --module-source-path src/main --module cx.ksim.dicelock.core,cx.ksim.dicelock.gui
-    cp src/main/cx.ksim.dicelock.gui/cx/ksim/dicelock/gui/Layout.fxml bin/main/cx.ksim.dicelock.gui/cx/ksim/dicelock/gui/
+	javac -d bin/main -p $JAVAFX_LIB_PATH --module-source-path src/main --module $core_module,$gui_module
+    cp src/main/$gui_module/cx/ksim/dicelock/gui/Layout.fxml bin/main/$gui_module/cx/ksim/dicelock/gui/
 }
 
 test() {
-     javac -d bin/test -cp "bin/main/cx.ksim.dicelock.core:junit-platform-console-standalone-1.9.3.jar" `find src/test/ -name *.java`
+     javac -d bin/test -cp "bin/main/$core_module:junit-platform-console-standalone-1.9.3.jar" `find src/test/ -name *.java`
 }
 
 
 if [ $# -eq 0 ]; then
     cli
     test
+    gui
     exit 0
 fi
 case $1 in

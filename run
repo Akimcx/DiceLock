@@ -2,25 +2,28 @@
 
 set -e
 
+core_module=cx.ksim.dicelock.core
+cli_module=cx.ksim.dicelock.cli
+gui_module=cx.ksim.dicelock.gui
+
 cli() {
-	java -p bin/main:$HOME/programming/binaries/picocli-4.7.3.jar -m cx.ksim.dicelock.cli/cx.ksim.dicelock.cli.DiceLockCLI $@
+    echo $@
+	java -p bin/main:$PICOCLI_PATH -m $cli_module/$cli_module.DiceLockCLI
 }
 
 gui(){
-	java -p bin/main:$HOME/programming/binaries/javafx-sdk-17.0.7/lib -m cx.ksim.dicelock.gui/cx.ksim.dicelock.gui.Main
+	java -p bin/main:$JAVAFX_LIB_PATH -m $gui_module/$gui_module.Main
 }
 
-
-
 test() {
-    java --add-opens cx.ksim.dicelock.core/cx.ksim.dicelock.core=ALL-UNNAMED  \
-	--add-modules=cx.ksim.dicelock.core                              \
+    java --add-opens $core_module/$core_module=ALL-UNNAMED  \
+	--add-modules=$core_module                              \
 	-p bin/main                                                \
-	--patch-module "cx.ksim.dicelock.core=$PWD/bin/test"            \
-	--add-reads cx.ksim.dicelock.core=ALL-UNNAMED                   \
+	--patch-module "$core_module=$PWD/bin/test"            \
+	--add-reads $core_module=ALL-UNNAMED                   \
 	-jar junit-platform-console-standalone-1.9.3.jar           \
 	-e junit-jupiter                                           \
-	-p cx.ksim.dicelock.core                                        \
+	-p $core_module                                        \
 	--reports-dir=reports
 }
 
@@ -31,7 +34,9 @@ fi
 
 case $1 in
     "cli")
-	cli
+	# Skip the first two arguments
+	# which are `run` and `cli`
+	cli ${@:2}
 	;;
     "gui")
 	gui
